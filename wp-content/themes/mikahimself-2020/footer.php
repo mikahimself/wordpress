@@ -11,8 +11,8 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
+	<footer id="colophon" class="footer">
+		<div class="container">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mikahimself-2020' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */

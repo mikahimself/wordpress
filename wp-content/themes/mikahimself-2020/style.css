@@ -58,6 +58,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
+	/* Add to support sticky footer */
+	position: relative;
+	min-height: 100%;
 }
 
 /* Sections
@@ -68,6 +71,8 @@ html {
  */
 body {
 	margin: 0;
+	/* This is the footer height*/
+	margin-bottom: 60px;
 }
 
 /**
@@ -509,6 +514,16 @@ table {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	line-height: 60px; /* Vertically center the text there */
+	background-color: #f5f5f5;
+  }
 
 /*--------------------------------------------------------------
 # Forms
