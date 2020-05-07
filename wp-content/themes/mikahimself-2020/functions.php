@@ -50,7 +50,7 @@ if ( ! function_exists( 'mikahimself_2020_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'mikahimself-2020' ),
+				'primary' => esc_html__( 'Primary', 'mikahimself-2020' ),
 			)
 		);
 
@@ -175,6 +175,12 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+// Register custom navigation walker
+function register_navwalker(){
+	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
 
 /**
  * Load Jetpack compatibility file.
