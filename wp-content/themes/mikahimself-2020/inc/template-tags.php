@@ -25,13 +25,16 @@ if ( ! function_exists( 'mikahimself_2020_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = sprintf(
-			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'mikahimself-2020' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);
+		$posted_on = sprintf($time_string);
+			/*esc_html_x( '<i class="fal fa-calendar-day"></i>')*/
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			/* translators: %s: post date. */
+			/*esc_html_x( 'Posted on %s', 'post date', 'mikahimself-2020' ),
+			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		);*/
+
+		/*echo '<span class="posted-on">' . $posted_on . '</span>';*/ // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<i class="far fa-calendar align-baseline"></i><span class="align-middle"> ' . $posted_on . '</span>';
 
 	}
 endif;
@@ -60,10 +63,10 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'mikahimself-2020' ) );
+			$categories_list = preg_replace('/<a /', '<a class="btn btn-light"', get_the_category_list( esc_html__( ' ', 'mikahimself-2020' ) ));
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'mikahimself-2020' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-tags align-middle"></i>' . esc_html__( ' %1$s', 'mikahimself-2020' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
@@ -75,23 +78,63 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '<span class="float-right">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'mikahimself-2020' ),
+						__( '<i class="far fa-comment"></i>', 'mikahimself-2020' ),
 						array(
 							'span' => array(
+								'class' => array(),
+							),
+							'i' => array(
 								'class' => array(),
 							),
 						)
 					),
 					wp_kses_post( get_the_title() )
-				)
+				),
+				sprintf(
+					wp_kses(
+						/* translators: %s: post title */
+						__( '<i class="far fa-comment"></i>', 'mikahimself-2020' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+							'i' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				),
+				sprintf(
+					wp_kses(
+						/* translators: %s: post title */
+						__( '<i class="far fa-comment"></i>', 'mikahimself-2020' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+							'i' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				),
+				'btn'
 			);
-			echo '</span>';
-		}
+			if (get_comments_number() > 0) {
+				echo '<span class="align-middle">' . get_comments_number() . '</span>' . '</span>';
+			} else {
+				echo '</span>';
+			}
+			
+			//echo '<span class="align-middle">' . get_comments_number() . '</span>';
+		} 
 
 		edit_post_link(
 			sprintf(

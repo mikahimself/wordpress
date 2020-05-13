@@ -16,7 +16,11 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-
+	<script src="https://kit.fontawesome.com/2d6ef164a0.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&amp;display=swap" rel="stylesheet">
+	<!-- Move bootstrap css before theme css. -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<?php wp_head(); ?>
 </head>
 

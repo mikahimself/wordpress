@@ -73,6 +73,7 @@ body {
 	margin: 0;
 	/* This is the footer height*/
 	margin-bottom: 60px;
+	font-family: 'Roboto';
 }
 
 /**
@@ -379,7 +380,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 }
@@ -413,22 +414,26 @@ address {
 }
 
 pre {
-	background: #eee;
-	font-family: "Courier 10 Pitch", courier, monospace;
-	font-size: 0.9375rem;
-	line-height: 1.6;
-	margin-bottom: 1.6em;
+	background: rgb(242, 242, 242);
+	font-family: 'Roboto Mono', "Courier 10 Pitch", courier, monospace;
+	font-size: 0.8rem;
+	line-height: 1.4;
+	margin-bottom: 1.4em;
 	max-width: 100%;
 	overflow: auto;
-	padding: 1.6em;
+	padding: 1.4em;
 }
 
 code,
 kbd,
 tt,
 var {
-	font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-	font-size: 0.9375rem;
+	background: rgb(242, 242, 242);
+	color: #212529;
+	padding: 0.2em;
+	font-family: 'Roboto Mono', monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 0.8rem;
+	font-weight: 100;
 }
 
 abbr,
@@ -616,12 +621,12 @@ textarea {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a {
+/*a {
 	color: #4169e1;
 }
 
 a:visited {
-	color: #800080;
+	color: #383138;
 }
 
 a:hover,
@@ -637,7 +642,7 @@ a:focus {
 a:hover,
 a:active {
 	outline: 0;
-}
+}*/
 
 /*--------------------------------------------------------------
 ## Menus
