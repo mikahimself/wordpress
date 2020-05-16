@@ -26,14 +26,6 @@ if ( ! function_exists( 'mikahimself_2020_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf($time_string);
-			/*esc_html_x( '<i class="fal fa-calendar-day"></i>')*/
-
-			/* translators: %s: post date. */
-			/*esc_html_x( 'Posted on %s', 'post date', 'mikahimself-2020' ),
-			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-		);*/
-
-		/*echo '<span class="posted-on">' . $posted_on . '</span>';*/ // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo '<i class="far fa-calendar align-baseline"></i><span class="align-middle"> ' . $posted_on . '</span>';
 
 	}
@@ -132,25 +124,14 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 			} else {
 				echo '</span>';
 			}
-			
-			//echo '<span class="align-middle">' . get_comments_number() . '</span>';
 		} 
 
 		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'mikahimself-2020' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			),
-			'<span class="edit-link">',
-			'</span>'
+			sprintf('<i class="far fa-edit"></i>'),
+			'<span class="float-right">',
+			'</span>',
+			$post,
+			'btn'
 		);
 	}
 endif;

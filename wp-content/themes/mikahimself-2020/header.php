@@ -80,37 +80,37 @@ wp_nav_menu( array(
       </div>
 	</nav>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
+	<header id="masthead" class="jumbotron jumbotron-fluid">
+		<div class="container">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="display-4"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="display-4"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 			endif;
 			$mikahimself_2020_description = get_bloginfo( 'description', 'display' );
 			if ( $mikahimself_2020_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $mikahimself_2020_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<p class="lead"><?php echo $mikahimself_2020_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 <!--
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">-->
-			<?php esc_html_e( 'Primary Menu', 'mikahimself-2020' ); ?>
+			<!-- <?php esc_html_e( 'Primary Menu', 'mikahimself-2020' ); ?>-->
 			<!--</button>-->
-			<?php
+			<!-- <?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
 				)
 			);
-			?>
+			?>-->
 		<!--</nav>--><!-- #site-navigation -->
 	</header><!-- #masthead -->
