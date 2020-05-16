@@ -130,10 +130,10 @@ function mikahimself_2020_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'mikahimself-2020' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'mikahimself-2020' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'before_widget' => '<div id="%1$s" class="mh2020-widget widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
 		)
 	);
 }
@@ -189,3 +189,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Require the custom recent posts widget file.
+ * Register the custom recent posts widget.
+ */
+require_once get_template_directory() . '/inc/mh2020-recent-posts.php';
+add_action('widgets_init', function() { register_widget('MH2020_RecentPosts');});
+
+require_once get_template_directory() . '/inc/mh2020-categories.php';
+add_action('widgets_init', function() { register_widget('MH2020_Categories');});

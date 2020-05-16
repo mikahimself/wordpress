@@ -492,6 +492,48 @@ ol {
 	list-style: decimal;
 }
 
+
+/**
+* List group used in sidebar.
+*/
+ul.list-group {
+	margin: 0;
+	padding: 0em;
+	margin-bottom: 1.5em;
+}
+
+li.no-bottom {
+	border-bottom: none;
+	padding: 0;
+}
+
+li.no-bottom:last-child {
+	border-bottom: 1px solid rgba(0,0,0,.125);
+	padding-bottom: 16px;
+}
+
+li.no-bottom h4 {
+	padding: 20px;
+	padding-bottom: 6px;
+}
+
+li.no-bottom a {
+	display: inline-block;
+	padding: 8px 20px;
+}
+
+li.no-bottom:active {
+	border-right: none;
+}
+a.btn:focus {
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+i.list-icon {
+	margin-right: 16px;
+}
+
 li > ul,
 li > ol {
 	margin-bottom: 0;
@@ -584,7 +626,7 @@ textarea {
 	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	padding: 3px;
+	padding: 6px;
 }
 
 input[type="text"]:focus,
