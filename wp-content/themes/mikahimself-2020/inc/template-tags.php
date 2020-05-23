@@ -55,10 +55,10 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = preg_replace('/<a /', '<a class="btn btn-light"', get_the_category_list( esc_html__( ' ', 'mikahimself-2020' ) ));
+			$categories_list = preg_replace('/<a /', '<a class="btn mh2020-btn"', get_the_category_list( esc_html__( ' ', 'mikahimself-2020' ) ));
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<i class="fas fa-tags align-middle"></i>' . esc_html__( ' %1$s', 'mikahimself-2020' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-tags align-middle margin-r8 mh2020-icon-button"></i>' . esc_html__( ' %1$s', 'mikahimself-2020' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 
 			/* translators: used between list items, there is a space after the comma */
@@ -70,12 +70,12 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="float-right">';
+			echo '<span class="float-right mh2020-icon-button">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( '<i class="far fa-comment"></i>', 'mikahimself-2020' ),
+						__( '<i class="far fa-comment mh2020-icon-button"></i>', 'mikahimself-2020' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -127,8 +127,8 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 		} 
 
 		edit_post_link(
-			sprintf('<i class="far fa-edit"></i>'),
-			'<span class="float-right">',
+			sprintf('<i class="far fa-edit mh2020-icon-button"></i>'),
+			'<span class="float-right mh2020-icon-button">',
 			'</span>',
 			$post,
 			'btn'

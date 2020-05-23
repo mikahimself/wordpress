@@ -196,5 +196,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 require_once get_template_directory() . '/inc/mh2020-recent-posts.php';
 add_action('widgets_init', function() { register_widget('MH2020_RecentPosts');});
 
-require_once get_template_directory() . '/inc/mh2020-categories.php';
-add_action('widgets_init', function() { register_widget('MH2020_Categories');});
+function add_class_to_archive_link($link_html, $url, $text, $format, $before, $after ) {
+	$link_html = $before . '          <a href="' . $url . '" class="btn list-group-item-action"><i class="far fa-calendar mh2020-icon-button align-baseline list-icon" aria-hidden="true"></i> ' . $text . '</a>' . "\n" . $after;
+    return $link_html;
+}
+
+add_filter("get_archives_link", "add_class_to_archive_link", 10, 6);
