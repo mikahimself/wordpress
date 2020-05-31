@@ -9,22 +9,22 @@ get_header();
 ?>
 
 	<main id="primary" class="container site-main">
-        <div class="row">
-            <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-8">
+                
                 <?php
                 if ( have_posts() ) :
-
-                    if ( is_home() && ! is_front_page() ) :
-                        ?>
+                  if ( is_home() && ! is_front_page() ) :
+                ?>
                         <header>
                             <h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
                         </header>
-                        <?php
-                    endif;
+                  <?php
+                  endif;
 
-                    /* Start the Loop */
-                    while ( have_posts() ) :
-                        the_post();
+                  /* Start the Loop */
+                  while ( have_posts() ) :
+                      the_post();
 
                         
 
@@ -49,15 +49,15 @@ get_header();
 
                 
                 ?>
-            </div><!-- Posts column -->
+        </div><!-- Posts column -->
             
-            <div class="col-md-4">
-                <?php
-                get_sidebar();
-                ?>
-            </div><!-- Sidebar -->
+        <div class="col-md-4">
+            <?php
+              get_sidebar();
+            ?>
+        </div><!-- Sidebar -->
      
-        </div>
+      </div>
 	</main><!-- #main -->
 
 <?php

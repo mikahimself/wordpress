@@ -26,7 +26,8 @@ if ( ! function_exists( 'mikahimself_2020_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf($time_string);
-		echo '<i class="far fa-calendar align-baseline"></i><span class="align-middle"> ' . $posted_on . '</span>';
+		echo '<i class="far fa-calendar align-baseline"></i>' . "\n";
+		echo '                  <span class="align-middle"> ' . $posted_on . '</span>' . "\n";
 
 	}
 endif;
@@ -54,23 +55,24 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 	function mikahimself_2020_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = preg_replace('/<a /', '<a class="btn mh2020-btn"', get_the_category_list( esc_html__( ' ', 'mikahimself-2020' ) ));
+			/* ML2020: Clean up post footer links and add proper classes. */
+			$categories_list = preg_replace('/<a /', '             <a class="btn mh2020-btn"', get_the_category_list( esc_html__( ' ', 'mikahimself-2020' ) ));
+			$categories_list = preg_replace('/<\/a>/', '</a>' . "\n"  , $categories_list);
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<i class="fas fa-tags align-middle margin-r8 mh2020-icon-button"></i>' . esc_html__( ' %1$s', 'mikahimself-2020' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<i class="fas fa-tags align-middle margin-r8 mh2020-icon-button"></i>' . "\n" . esc_html__( ' %1$s', 'mikahimself-2020' ) . "\n", $categories_list );
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'mikahimself-2020' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'mikahimself-2020' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'mikahimself-2020' ) . '</span>' . "\n", $tags_list );
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="float-right mh2020-icon-button">';
+			echo '              <span class="float-right mh2020-icon-button">' . "\n                ";
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -120,9 +122,9 @@ if ( ! function_exists( 'mikahimself_2020_entry_footer' ) ) :
 				'btn'
 			);
 			if (get_comments_number() > 0) {
-				echo '<span class="align-middle">' . get_comments_number() . '</span>' . '</span>';
+				echo "\n" . '                <span class="align-middle">' . get_comments_number() . '</span>' . "\n" . '              </span>' . "\n";
 			} else {
-				echo '</span>';
+				echo "\n" . '              </span>' . "\n";
 			}
 		} 
 

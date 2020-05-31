@@ -9,32 +9,29 @@
 
 ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class("card"); ?>>
-	<div class="card-body">
+          <div id="post-<?php the_ID(); ?>" <?php post_class("card"); ?>>
+	        <div class="card-body">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="card-title">', '</h1>' );
+			the_title( '<h1 class="card-title">', '</h1> ' );
 		else :
-			#the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			the_title( '<h4 class="card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+			the_title( '      <h4 class="card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>'  . "\n" );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<h6 class="card-title">
+			  <h6 class="card-title">
 				<small class="text-muted">
-				<?php
+				  <?php
 				mikahimself_2020_posted_on();
-				/*mikahimself_2020_posted_by();*/
-				?>
-				</small>
-			</h6><!-- .entry-meta -->
+				  ?>
+			    </small>
+			  </h6><!-- .entry-header -->
 		<?php endif; ?>
-	<!-- .entry-header -->
+	
 
 	<?php mikahimself_2020_post_thumbnail(); ?>
-	<div class="card-text">
-	
+	      <div class="card-text">
 		<?php
 		the_content(
 			sprintf(
@@ -58,10 +55,13 @@
 			)
 		);
 		?>
-		</div>
-	</div><!-- .entry-content -->
 
-	<div class="card-footer text-muted bg-transparent">
-		<?php mikahimself_2020_entry_footer(); ?>
-	</div><!-- .entry-footer -->
-</div><!-- #post-<?php the_ID(); ?> -->
+	          </div>
+	        </div><!-- .entry-content -->
+
+	        <div class="card-footer text-muted bg-transparent">
+		      <?php mikahimself_2020_entry_footer(); ?>
+			</div><!-- .entry-footer -->
+			
+		  </div><!-- #post-<?php the_ID(); ?> -->
+		  
