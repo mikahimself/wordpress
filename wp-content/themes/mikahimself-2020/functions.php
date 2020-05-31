@@ -130,8 +130,8 @@ function mikahimself_2020_widgets_init() {
 			'name'          => esc_html__( 'Sidebar', 'mikahimself-2020' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'mikahimself-2020' ),
-			'before_widget' => '<div id="%1$s" class="mh2020-widget widget %2$s">',
-			'after_widget'  => '</div>',
+			'before_widget' => '<div id="%1$s" class="mh2020-widget widget %2$s">' . "\n",
+			'after_widget'  => '</div>' . "\n",
 			'before_title'  => '<h4 class="widget-title">',
 			'after_title'   => '</h4>',
 		)
@@ -176,12 +176,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-// Register custom navigation walker
-function register_navwalker(){
-	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-}
-add_action( 'after_setup_theme', 'register_navwalker' );
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -197,8 +191,16 @@ require_once get_template_directory() . '/inc/mh2020-recent-posts.php';
 add_action('widgets_init', function() { register_widget('MH2020_RecentPosts');});
 
 function add_class_to_archive_link($link_html, $url, $text, $format, $before, $after ) {
-	$link_html = $before . '          <a href="' . $url . '" class="btn list-group-item-action"><i class="far fa-calendar mh2020-icon-button align-baseline list-icon" aria-hidden="true"></i> ' . $text . '</a>' . "\n" . $after;
+	$link_html = $before . '                    <a href="' . $url . '" class="btn list-group-item-action"><i class="far fa-calendar mh2020-icon-button align-baseline list-icon" aria-hidden="true"></i> ' . $text . '</a>' . "\n" . $after;
     return $link_html;
 }
 
 add_filter("get_archives_link", "add_class_to_archive_link", 10, 6);
+
+/**  
+ *  Add nav-link attribute to menu links.
+ */
+function add_menuclass($ulclass) {
+    return preg_replace('/<a /', '<a class="nav-link" ', $ulclass);
+}
+add_filter('wp_nav_menu','add_menuclass');

@@ -683,30 +683,6 @@ textarea {
 	width: 100%;
 }
 
-input.search-submit {
-	color:white;
-	background-color: #4DB6AC;
-	border-color: #4DB6AC;
-	font-size: 14px;
-}
-
-input.search-submit:hover {
-	color:white;
-	background-color: #4DB6ACEB;
-	border-color: #4DB6ACEB;
-}
-
-input.search-submit:active, input.search-submit:focus {
-	color:white;
-	background-color: #4DB6ACC2;
-	border-color: #4DB6ACC2 !important;
-
-}
-
-
-input.search-form-sidebar {
-	border-right: none;
-}
 
 /*--------------------------------------------------------------
 # Navigation
@@ -715,40 +691,7 @@ input.search-form-sidebar {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-.nav-tabs {
-	border: 1px solid #dee2e6;
-	border-bottom: none;
-	font-size: medium;
-}
 
-.nav-item {
-	background-color: white;
-
-}
-
-.nav-tabs .nav-link {
-	background-color: white;
-	border-radius: 0;
-	border:none;
-	color: #404040;
-	font-size: 14px;
-}
-
-.nav-tabs .nav-link.active {
-	border:none;
-	background-color: white;
-	border-bottom: 4px solid #80CBC4;
-	color: #26A69A;
-}
-
-.tab-pane {
-	max-height: 1000px;
-	transition: max-height 0.5s linear;
-}
-
-.fade {
-	transition: none;
-}
 
 /*a {
 	color: #4169e1;
@@ -885,6 +828,62 @@ span.mh2020-icon-button:active {
 	}
 }
 
+#menu-topmenu > li{
+	margin-right: 10px;
+}
+
+#menu-topmenu > li > ul.sub-menu > li.menu-item {
+	background:blue;
+	font-size: 13px;
+	line-height: 30px;
+	height: 0px;
+	list-style-type: none;
+	overflow:hidden;
+	padding: 0px;
+	position: relative;
+	
+  
+   /*Animation*/
+   -webkit-transition: height 0.5s ease;
+	  -moz-transition: height 0.5s ease;
+		-o-transition: height 0.5s ease;
+	   -ms-transition: height 0.5s ease;
+		   transition: height 0.5s ease;
+}
+
+
+#menu-topmenu > li > ul.sub-menu {
+	/*display: none;*/
+	position: relative;
+	max-height: 0px;
+	margin-left: 0px;
+	padding: 0px;
+	
+}
+
+li:hover > ul.sub-menu {
+	background-color: green;
+	margin-left: 0;
+	padding: 0px;
+	display: block;
+}
+
+#menu-topmenu > li:hover > ul.sub-menu > li {
+	height: 32px;
+	border-bottom: 1px solid #eee; 
+	margin-left: 0px;
+	position:relative;
+}
+
+li > ul.sub-menu > li:hover > ul.sub-menu > li {
+	height: 32px;
+	border-bottom: 1px solid #eee; 
+	background-color: teal;
+	margin-left: 20px;
+	position:relative;
+}
+
+
 .site-main .comment-navigation,
 .site-main
 .posts-navigation,
@@ -989,6 +988,113 @@ span.mh2020-icon-button:active {
 	max-width: 100%;
 }
 
+
+/* Search */
+
+.widget_search {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+	border: none;
+}
+
+input.search-submit {
+	color:white !important;
+	background-color: #4DB6AC;
+	border-color: #4DB6AC;
+	font-size: 14px;
+	border: none;
+}
+
+input.search-submit:hover {
+	background-color: #4DB6ACEB;
+	border-color: #4DB6ACEB;
+}
+
+input.search-submit:active, input.search-submit:focus {
+	background-color: #4DB6ACC2;
+	border:none !important;
+	border-color: #4DB6ACC2 !important;
+}
+
+input.search-form-sidebar {
+	border-right: none;
+}
+
+.widget_search input {
+	border: none !important;
+}
+
+/* Recent posts, Categories & Archives card */
+.widget-area nav {
+	position: relative;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+	font-size: medium;
+}
+
+.widget-area .nav-link {
+	width:33.333% !important;
+	background-color: white;
+	border-radius: 0;
+	border:none;
+	color: #404040;
+	font-size: 14px;
+}
+
+.widget-area .nav-link.active {
+	border:none;
+	background-color: white;
+	margin-bottom: 8px;
+	color: #26A69A;
+}
+
+.widget-area .tab-pane.active {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+
+.widget-area li {
+	border: none;
+}
+
+.widget-area .slider {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 33.333%;
+	height: 4px;
+	background-color: #80CBC4;;
+	transition: left .25s;
+}
+.nav-link:first-child.active ~ .slider {
+	left: 0;
+}
+
+.widget-area .nav-link:nth-child(2).active ~ .slider {
+	left: 33.333%;
+}
+
+.widget-area .nav-link:nth-child(3).active ~ .slider {
+	left: 66.666%;
+}
+
+.tab-content {
+	transition: height 0.3 ease-in;
+}
+
+.tab-content>.tab-pane.active {
+	height: auto;
+	transform: scaleY(1);
+	transition:transform 0.3s ease-out;
+	transform-origin:top;
+	display: block;
+}
+
+.tab-content>.tab-pane {
+	display: block;
+	height: 0;
+	transform:scaleY(0);
+}
+
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -1003,6 +1109,12 @@ span.mh2020-icon-button:active {
 .post,
 .page {
 	margin: 0 0 1.5em;
+}
+
+/* All posts shown inside cards. */
+.card {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+	border: none;
 }
 
 .updated:not(.published) {
