@@ -20,31 +20,32 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area card post">
+	<div class="card-body">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h3 class="comments-title card-title">
 			<?php
 			$mikahimself_2020_comment_count = get_comments_number();
 			if ( '1' === $mikahimself_2020_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'mikahimself-2020' ),
+					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'mikahimself-2020' ),
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
 				printf( 
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mikahimself_2020_comment_count, 'comments title', 'mikahimself-2020' ) ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $mikahimself_2020_comment_count, 'comments title', 'mikahimself-2020' ) ),
 					number_format_i18n( $mikahimself_2020_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			}
 			?>
-		</h2><!-- .comments-title -->
+		</h3><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
@@ -73,5 +74,5 @@ if ( post_password_required() ) {
 
 	comment_form();
 	?>
-
+	</div>
 </div><!-- #comments -->

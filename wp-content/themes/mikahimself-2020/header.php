@@ -19,6 +19,8 @@
 	<script src="https://kit.fontawesome.com/2d6ef164a0.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&amp;display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 	<!-- Move bootstrap css before theme css. -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<?php wp_head(); ?>
@@ -61,21 +63,23 @@ wp_nav_menu( array(
 	</nav>
 
 	<header id="masthead" class="jumbotron jumbotron-fluid">
-	  
+
+	
 	  <div class="container">
+	  
 <?php
   the_custom_logo();
   if ( is_front_page() && is_home() ) :
 ?>
-        <h1 class="display-4">
+        <h1 class="display-4 main-heading">
 		  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 		</h1>
 <?php
   else :
 ?>
-        <p class="display-4">
+        <h1 class="display-4 main-heading">
 		  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-		</p>
+  		</h1>
 <?php
   endif;
   $mikahimself_2020_description = get_bloginfo( 'description', 'display' );
@@ -83,6 +87,7 @@ wp_nav_menu( array(
 ?>
         <p class="lead"><?php echo $mikahimself_2020_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 <?php endif; ?>
+
       </div><!-- .site-branding -->
-			
+	  
 	</header><!-- #masthead -->

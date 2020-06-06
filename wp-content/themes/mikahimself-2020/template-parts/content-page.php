@@ -9,46 +9,28 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+	<div id="post-<?php the_ID(); ?>" <?php post_class("card"); ?>>
+		<div class="card-body">
+			<?php the_title( '<h1 class="card-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
 
-	<?php mikahimself_2020_post_thumbnail(); ?>
+		<?php mikahimself_2020_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mikahimself-2020' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer">
+		<div class="card-text">
 			<?php
-			edit_post_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'mikahimself-2020' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					wp_kses_post( get_the_title() )
-				),
-				'<span class="edit-link">',
-				'</span>'
+			the_content();
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mikahimself-2020' ),
+					'after'  => '</div>',
+				)
 			);
 			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+		</div><!-- .entry-content -->
+		<div class="card-footer text-muted bg-transparent">
+			<?php mikahimself_2020_entry_footer(); ?>
+		</div><!-- .entry-footer -->
+		
+		</div>
+			</div><!-- #post-<?php the_ID(); ?> -->

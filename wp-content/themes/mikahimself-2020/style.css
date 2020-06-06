@@ -74,6 +74,13 @@ body {
 	/* This is the footer height*/
 	margin-bottom: 60px;
 	font-family: 'Roboto';
+	/*background-position: center;*/
+	background-image: url('mh2020-header-bg.svg') !important;
+	background-repeat: no-repeat !important;
+	/*background-size: cover !important;*/
+	background-size: auto 3200px !important;
+	
+	
 }
 
 /**
@@ -83,13 +90,38 @@ main {
 	display: block;
 }
 
+
+.jumbotron {
+	/*clip-path: polygon(0 0, 100% 0, 100% 81%, 0 97%);
+	background-color: #ee6123;*/
+	background-color: #ffffff00;
+}
+
+@media (min-width: 576px) {
+	.jumbotron {
+		padding: 4rem 2rem 2rem 2rem;
+	}
+}
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
+h1.main-heading {
+	font-size: 6em;
+	color: #f8f9fa;
+	margin: 0.1em 0;
+	font-family: 'Permanent Marker', cursive;
+	text-shadow: 2px 2px #404040;
+}
+
+h1.main-heading a {
+	color: #f8f9fa;
+	text-decoration: none;
+}
+
+h1 a:hover {
+	text-decoration: none;
+	color: #e7ebee;
 }
 
 /* Grouping content
@@ -394,7 +426,9 @@ h6 {
 	clear: both;
 }
 
-h4.card-title a {
+h4.card-title a,
+h3.card-title,
+h3.comment-reply-title {
 	color: #26A69A;
 }
 
@@ -463,6 +497,8 @@ big {
 .margin-l8 {
 	margin-left: 8px;
 }
+
+
 
 /*--------------------------------------------------------------
 # Elements
@@ -652,9 +688,32 @@ input[type="color"],
 textarea {
 	color: #666;
 	border: 1px solid #ccc;
-	border-radius: 0px;
+	border-radius: 3px;
 	padding: 6px;
+	outline: none;
 }
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="url"]:hover,
+input[type="password"]:hover,
+input[type="search"]:hover,
+input[type="number"]:hover,
+input[type="tel"]:hover,
+input[type="range"]:hover,
+input[type="date"]:hover,
+input[type="month"]:hover,
+input[type="week"]:hover,
+input[type="time"]:hover,
+input[type="datetime"]:hover,
+input[type="datetime-local"]:hover,
+input[type="color"]:hover,
+textarea:hover {
+	color: #111;
+	border: 1px solid #2a333c !important;
+	outline: none !important;
+}
+
 
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -673,15 +732,63 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
 	color: #111;
+	border: 1px solid #4DB6AC !important;
+	outline: none !important;
 }
 
 select {
-	border: 1px solid #ccc;
+	border: 0px solid #ccc;
 }
 
 textarea {
 	width: 100%;
 }
+
+label {
+	display: block;
+	margin-bottom: 0.2em;
+	font-weight: 500;
+}
+input[type="checkbox"] + label {
+	display: inline-block;
+	margin-left: 0.2em;
+	font-weight: 400;
+}
+
+/* Comment form button*/
+.form-submit .submit {
+	background-color: #4DB6AC;
+	border-color: #4DB6AC;
+	border-radius: 3px;
+    color: white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+	text-align: center;
+    vertical-align: middle;
+	cursor: pointer;
+	padding: .375rem .75rem;
+    font-size: 1rem;
+	line-height: 1.5;
+	outline: none;
+}
+
+.form-submit .submit:hover {
+	border-color: #4DB6ACEB;
+	background-color: #4DB6ACEB;
+}
+
+
+.form-submit .submit:focus {
+	border-color: #4DB6ACC2;
+	background-color: #4DB6ACC2;
+	color: white;
+}
+
+.form-submit .submit:active {
+	border-color: #4DB6ACC2;
+	background-color: #4DB6ACC2;
+	color:white;
+}
+
 
 
 /*--------------------------------------------------------------
@@ -758,6 +865,28 @@ span.mh2020-icon-button:active {
 	color:white;
 }
 
+.mh2020-nav-btn {
+	/*background-color: #ff8360;*/
+	background-color: #ff8370;
+	color: white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+
+}
+
+.mh2020-nav-btn:hover {
+	background-color: #ff8370eb;
+	color: white;
+}
+
+.mh2020-nav-btn:focus {
+	background-color: #ff8370c2;
+	color: white;
+}
+
+.mh2020-nav-btn:active {
+	background-color: #ff8370c2;
+	color: white;
+}
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -1017,6 +1146,19 @@ input.search-submit:active, input.search-submit:focus {
 
 input.search-form-sidebar {
 	border-right: none;
+	outline: none;
+}
+
+input.search-form-sidebar:focus {
+	border-right: none;
+	outline: none;
+	border-color: #4DB6AC;
+	box-shadow: none;
+}
+
+input.search-submit {
+	outline: none;
+	border-radius: 3px;
 }
 
 .widget_search input {
@@ -1024,11 +1166,16 @@ input.search-form-sidebar {
 }
 
 /* Recent posts, Categories & Archives card */
+.sidebar-widget {
+	background-color: white;
+}
+
 .widget-area nav {
 	position: relative;
 	border: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
 	font-size: medium;
+	vertical-align: middle;
 }
 
 .widget-area .nav-link {
@@ -1038,13 +1185,20 @@ input.search-form-sidebar {
 	border:none;
 	color: #404040;
 	font-size: 14px;
+	text-align: center;
 }
 
 .widget-area .nav-link.active {
 	border:none;
 	background-color: white;
-	margin-bottom: 8px;
+	padding-bottom: 14px;
 	color: #26A69A;
+}
+
+@media (max-width: 1024px) {
+	.widget-area .nav-link {
+		font-size: 0.5em !important;
+	}
 }
 
 .widget-area .tab-pane.active {

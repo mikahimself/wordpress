@@ -13,7 +13,7 @@
 	        <div class="card-body">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="card-title">', '</h1> ' );
+			the_title( '      <h3 class="card-title">', '</h3> ' );
 		else :
 			the_title( '      <h4 class="card-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>'  . "\n" );
 		endif;

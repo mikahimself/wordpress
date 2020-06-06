@@ -10,8 +10,10 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
+	
+    <main id="primary" class="container site-main">
+      <div class="row">
+        <div class="col-md-8">
 		<?php
 		while ( have_posts() ) :
 			the_post();
@@ -20,8 +22,8 @@ get_header();
 
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'mikahimself-2020' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'mikahimself-2020' ) . '</span> <span class="nav-title">%title</span>',
+					'prev_text' => '<span class="btn mh2020-nav-btn align-text-top mh2020-single-post-nav-link"><i class="fas align-middle fa-angle-left fa-2x margin-r8"></i> ' . ' %title</span>',
+					'next_text' => '<span class="btn mh2020-nav-btn">%title <i class="fas align-middle fa-angle-right fa-2x margin-l8"></i></span>',
 				)
 			);
 
@@ -32,9 +34,16 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-
-	</main><!-- #main -->
+		</div>
+		<div class="col-md-4">
+		    <?php
+                get_sidebar();
+                ?>
+		</div>
+		
+    </main>
+	<!-- #main -->
 
 <?php
-get_sidebar();
+
 get_footer();
